@@ -6,6 +6,10 @@ urlpatterns = [
     path("home",views.home,name="home"),
     path("index",views.index,name="index"),
     path("dash",views.dash,name="dash"),
-    path("food_name",views.food_name,name="food_name")
+    path("",views.food_name,name="food_name"),
+    path("viewfood",views.viewfood,name="viewfood"),
+    path('deletefood/<int:id>/',views.deletefood,name="deletefood"),
+    path('updatefood/<int:id>/',views.updatefood,name="updatefood")
+
 ]
 

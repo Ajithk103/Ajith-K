@@ -1,0 +1,46 @@
+{% extends 'dash.html' %}
+{load crispy_forms_tags %}
+{% block content %}
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl no</th>
+      <th scope="col">food name</th>
+      <th scope="col">price</th>
+      <th scope="col">category</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for food in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{food.name}}</td>
+      <td>{{food.price}}</td>
+      <td>{{food.category}}</td>
+      <td>
+        <form action="{% url 'deletefood' food.id %}" method="POST" >
+          {% csrf_token %}
+          <button type = "submit">Delete</button>
+        </form>
+      </td>
+      <td>
+        <a href ="{%url 'updatefood' food.id %}" class="btn btn-danger">Update</a>
+      </td>
+
+
+    </tr>
+
+
+
+  {% endfor %}
+</table>
+
+{% endblock %}
